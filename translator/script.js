@@ -3,6 +3,8 @@ let favorites = [];
 // Функция для перевода слова с использованием fakeTranslate
 async function translateWord() {
     const word = document.getElementById("wordInput").value.trim();
+    const errorMassege = document.getElementById("errorMessage");
+    errorMassege.innerText = "";
     if (!word) {
         alert("Введите слово для перевода.");
         return;
@@ -15,7 +17,7 @@ async function translateWord() {
     } catch (error) {
         // Покажите сообщение об ошибке
         document.getElementById("translationResult").innerText = "";
-        alert(error);
+        errorMassege.innerText = error;
     }
 }
 
